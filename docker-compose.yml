@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  email_tracker:
+    container_name: email_tracker
+    build: .
+    command: python manage.py runserver 0.0.0.0:4040
+    volumes:
+      - .:/email_tracker
+    depends_on:
+      - email_tracker_db
+    ports:
+      - "4040:4040"
+    env_file: 
+      - .env.dev
+    networks:
+      - email_tracker_network
+
+  email_tracker_db:
+    container_name: email_tracker_db
+    image: postgres:12.2
+    ports:
+      - "5433:5432"
+    env_file:
+      - .env.dev
+    networks:
+      - email_tracker_network
+
+
+networks:
+  email_tracker_network:
