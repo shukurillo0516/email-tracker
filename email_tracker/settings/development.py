@@ -6,6 +6,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = ["http://localhost:5050"]
+CORS_ALLOWED_ORIGIN_REGEXES = ["*"]
 
 INTERNAL_IPS = [
     "127.0.0.1",
