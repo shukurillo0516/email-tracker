@@ -4,4 +4,4 @@ from .views import *
 app_name = "links"
 
 
-urlpatterns = [path("<path:name>", LinkView.as_view(), name="link_view")]
+urlpatterns = [path("img/<path:url>", LinkView.as_view(), name="link_view")]
