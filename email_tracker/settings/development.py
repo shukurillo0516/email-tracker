@@ -5,6 +5,7 @@ from email_tracker.settings.base import *
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost:5050"]
 
 INTERNAL_IPS = [
     "127.0.0.1",
