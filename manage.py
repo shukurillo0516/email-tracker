@@ -2,11 +2,19 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+from django.conf import settings
 
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'email_tracker.settings')
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "email_tracker.settings")
+    if settings.DEBUG:
+        if os.environ.get("RUN_MAIN") or os.environ.get("WERKZEUG_RUN_MAIN"):
+            import debugpy
+
+            debugpy.listen(("0.0.0.0", 4141))
+            print("Attached!")
+
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -18,5 +26,5 @@ def main():
     execute_from_command_line(sys.argv)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

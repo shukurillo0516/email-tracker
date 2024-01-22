@@ -1,1 +1,2 @@
 -r common.txt
+debugpy==1.5.1
