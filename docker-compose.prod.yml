@@ -24,7 +24,7 @@ services:
   email_tracker_prod_db:
     container_name: email_tracker_prod_db
     restart: always
-    image: postgres:stable
+    image: postgres:latest
     ports:
       - "5433:5432"
     env_file:
