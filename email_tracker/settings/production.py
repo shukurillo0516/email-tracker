@@ -4,7 +4,7 @@ from email_tracker.settings.base import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["tracker.sm2002.uz", "localhost"]
+ALLOWED_HOSTS = ["email.tracker.sm2002.uz", "localhost"]
 CSRF_TRUSTED_ORIGINS = ["https://email.tracker.sm2002.uz", "http://localhost:5050"]
 CORS_ALLOWED_ORIGINS = ["https://email.tracker.sm2002.uz", "http://localhost:5050"]
 
