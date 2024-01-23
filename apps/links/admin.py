@@ -6,7 +6,7 @@ from .models import *
 class LinkAdmin(admin.ModelAdmin):
     list_display = ["id", "name", "user", "url"]
     list_display_links = ["id", "name", "user"]
-    readonly_fields = ["ur", "created_at", "updated_at"]
+    readonly_fields = ["url", "created_at", "updated_at"]
     raw_id_fields = ["user"]
 
 
