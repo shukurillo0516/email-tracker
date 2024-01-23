@@ -3,6 +3,7 @@ version: '3.9'
 services:
   email_tracker_prod:
     container_name: email_tracker_prod
+    restart: always
     build:
       context: .
       dockerfile: Dockerfile.prod
@@ -22,11 +23,14 @@ services:
 
   email_tracker_prod_db:
     container_name: email_tracker_prod_db
-    image: postgres:12.2
+    restart: always
+    image: postgres:stable
     ports:
       - "5433:5432"
     env_file:
       - .env.prod
+    volumes:
+      - email_tracker_prod_db_volume:/var/lib/postgresql/data/
     networks:
       - email_tracker_prod_network
 
@@ -51,6 +55,7 @@ volumes:
   email_tracker_prod_open_media_volume:
   email_tracker_prod_static_volume:
   email_tracker_prod_loggers_volume:
+  email_tracker_prod_db_volume:
 
 networks:
   email_tracker_prod_network:
